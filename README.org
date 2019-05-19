@@ -1,55 +1,68 @@
 
-* Installing
+* Introduction
 
-   The  pycodes  package  provides various extensions to Python which are
-   useful  in  developing  and  analyzing error correcting codes and data
-   compression codes.
+The =pycodes= package was created for research and development on
+error correcting codes and data compression using low density parity
+check codes.
 
-   Recently I also started adding routines for solving circuit 
-   satisfiability problems in the pySAT module, but pySAT is somewhat
-   incomplete at this point.
+It can also be used for solving circuit satisfiability problems in the
+pySAT module, but pySAT is somewhat incomplete at this point.
 
-* Prerequisites
+This code is somewhat old as I have not worked on error correcting
+codes or data compression in a while. As of May 2019, however, it
+built succesfully on python 2.7 on an Ubuntu Linux system and all the
+regression tests passed.
+
+* Installation
+
+The following describe how to build and install pycodes.
+
+** Prerequisites
 
 You will need the following installed on your system to use pycodes:
 
      - Python (preferably version 2.2 or later)
+     - Python headers
+       - Use =apt install python-dev= on a Debian system or
+         see [[https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory][Stack Overflow]] for other systems.
      - biggles   (optional; only required if you want plotting)
 
 **  Installing
 
-   Edit the file setup.py to edit installation options (e.g., if you want
-   to  compile  in  debug  mode  or  optimization  mode.  Then,  in  this
-   directory, execute the command
+Edit the file setup.py to edit installation options (e.g., if you want
+to  compile  in  debug  mode  or  optimization  mode.  Then,  in  this
+directory, execute the command
 
 #+BEGIN_EXAMPLE
 $ python setup.py install
 #+END_EXAMPLE
 
-   to compile the required python extensions and install them globally.
+to compile the required python extensions and install them globally.
+(Note that you may need to use =python2= instead of =python= if you
+have both python 2 and python 3 installed.)
 
-   After  the  installation  completes, you can use pycodes just like any
-   other  python  module.  For  example,  to run the regression tests you
-   could start python and do
+After  the  installation  completes, you can use pycodes just like any
+other  python  module. For  example,  to run the regression tests you
+could start python and do
 
 #+BEGIN_EXAMPLE
 >>> import pycodes, pycodes.tests
 >>> pycodes.tests.DoRegressionTests()
 #+END_EXAMPLE
 
-   If you don't want to globally install pycodes, you can just compile it
-   in  place  and  use it as a local python module. To do this, uncomment
-   the lines for [build_ext] in setup.cfg and do
+If you don't want to globally install pycodes, you can just compile it
+in place and use it as a local python module. To do this, uncomment
+the lines for [build_ext] in setup.cfg and do
 
 #+BEGIN_EXAMPLE
 $ python setup.py build
 #+END_EXAMPLE
 
-   to  compile  everything.  Make  sure  that  the  name of the directory
-   containing  the pycodes module is named pycodes and not something like
-   pycodes-1.0.  To use pycodes, start python in the directory containing
-   the  pycodes  directory.  For example, to run the regression tests you
-   could do
+to compile everything.  Make sure that the name of the directory
+containing the pycodes module is named pycodes and not something like
+=pycodes-1.2=.  To use pycodes, start python in the directory
+containing the pycodes directory.  For example, to run the regression
+tests you could do
 
 #+BEGIN_EXAMPLE
 $ python
